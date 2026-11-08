@@ -1,0 +1,16 @@
+name: GitHub Egress Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  egress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check outbound IP
+        run: |
+          echo "Public IP:"
+          curl -4 -s https://api.ipify.org
+          echo
+          echo "Network details:"
+          curl -4 -s https://ipinfo.io/json
